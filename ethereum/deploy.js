@@ -3,7 +3,7 @@ const Web3 = require('web3');
 const compiledResume = require('./build/CredentialStore.json')
 
 const provider = new HDWalletProvider(
-	'supply lecture label affair slot quit sign pause large hockey blind ball',
+	'exit member iron spatial dust split never paddle love pony neck trust',
 	'https://rinkeby.infura.io/v3/3e932da64ab5478c9238d2b72fbd7ba1'
 	);
 
