@@ -18,7 +18,7 @@ contract CredentialStore {
     }
 
     struct Person {
-        // maps university names to credentials
+        // maps names to credentials
         mapping(string => UniversityCredential) universityMap;
         mapping(string => JobCredential) jobMap;
         string name;
@@ -118,8 +118,7 @@ contract CredentialStore {
         personMap[_personAddr].jobMap[firmName].employeeID = _employeeID;
     }
 
-
-
+    // GETTERS
     function getName(address _personAddr) public view returns (string) {
         return personMap[_personAddr].name;
     }
@@ -152,8 +151,15 @@ contract CredentialStore {
         return personMap[_personAddr].jobMap[_firmName].designation;
     }
     
+    function getCTC(address _personAddr, string _firmName) public view returns (uint) {
+        return personMap[_personAddr].jobMap[_firmName].CTC;
+    }
+    
     function getDateOfRelieving(address _personAddr, string _firmName) public view returns (string) {
         return personMap[_personAddr].jobMap[_firmName].dateOfRelieving;
     }
 
+    function getEmployeeID(address _personAddr, string _firmName) public view returns (string) {
+        return personMap[_personAddr].jobMap[_firmName].employeeID;
+    }
 }
