@@ -38,7 +38,8 @@ contract CredentialStore {
     // access credentials with this procedure:
     // credential = contract.studentMap[studentAddr].universityMap[universityName]
 
-    address owner;
+    address public owner;
+
     constructor () public {
         owner = msg.sender;
     }
