@@ -11,11 +11,10 @@ class ResumeIndex extends Component {
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
                 </Head>
 
-                <div style={{}}>
                     <h1 style={{color: 'white'}}>
                         Blockchain resume
                     </h1>
-                    <div style={{}}>
+                    <div >
                         <Button>
                             Student
                         </Button>
@@ -26,7 +25,6 @@ class ResumeIndex extends Component {
                             University
                         </Button>
                     </div>
-                </div>
             </div>
         );
     }
