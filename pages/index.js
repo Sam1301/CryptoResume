@@ -21,7 +21,7 @@ class ResumeIndex extends Component {
         const accounts = await web3.eth.getAccounts();
         const name = await store.methods.accreditedUniversities(accounts[0]).call();        
         const isUniversity = !!name;
-        Router.pushRoute(isUniversity ? '/universityForm' : '/universityRegistration');
+        Router.pushRoute(isUniversity ? '/universityForm' : '/registration');
     }
 
     render() {
