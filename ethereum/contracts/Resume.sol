@@ -92,13 +92,11 @@ contract CredentialStore {
         string storage universityEmail = accreditedUniversities[msg.sender];
         personMap[_personAddr].universityMap[universityEmail].completed = _completed;
         personMap[_personAddr].universityName = getNameFromEmail(universityEmail);
-
     }
     function updateYearOfGraduation(address _personAddr, uint _yearOfGraduation) public {
         string storage universityEmail = accreditedUniversities[msg.sender];
         personMap[_personAddr].universityMap[universityEmail].yearOfGraduation = _yearOfGraduation;
         personMap[_personAddr].universityName = getNameFromEmail(universityEmail);
-
     }
     function updateFieldOfStudy(address _personAddr, string _fieldOfStudy) public  {
         string storage universityEmail = accreditedUniversities[msg.sender];
@@ -124,7 +122,6 @@ contract CredentialStore {
         string storage firmEmail = registeredCompanies[msg.sender];
         personMap[_personAddr].jobMap[firmEmail].dateOfJoining = _dateOfJoining;
         personMap[_personAddr].companyName = getNameFromEmail(firmEmail);
-
     }
 
     function updateDesignation(address _personAddr, string _designation) public {
