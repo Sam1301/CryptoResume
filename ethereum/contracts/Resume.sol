@@ -97,6 +97,14 @@ contract CredentialStore {
         string storage universityName = accreditedUniversities[msg.sender];
         personMap[_personAddr].universityMap[universityName].gpa = _gpa;
     }
+    
+    function verifyAllUniversity(address _personAddr, string _degreeType, bool _completed, uint _yearOfGraduation, string _fieldOfStudy, uint _gpa) public {
+        updateDegreeType(_personAddr, _degreeType);
+        updateCompleted(_personAddr, _completed);
+        updateYearOfGraduation(_personAddr, _yearOfGraduation);
+        updateFieldOfStudy(_personAddr, _fieldOfStudy);
+        updateGPA(_personAddr, _gpa);
+    }
 
      // COMPANY INTERFACE
     function updateDateOfJoining(address _personAddr, string _dateOfJoining) public {
@@ -124,6 +132,14 @@ contract CredentialStore {
         personMap[_personAddr].jobMap[firmName].employeeID = _employeeID;
     }
 
+    function verifyAllCompany(address _personAddr, string _dateOfJoining, string _designation, uint _ctc, string _dateOfRelieving, string _employeeID) public {
+        updateDateOfJoining(_personAddr, _dateOfJoining);
+        updateDesignation(_personAddr, _designation);
+        updateCTC(_personAddr, _ctc);
+        updateDateOfRelieving(_personAddr, _dateOfRelieving);
+        updateEmployeeID(_personAddr, _employeeID);
+    }
+    
     // GETTERS
     function getName(address _personAddr) public view returns (string) {
         return emailToName[personMap[_personAddr].email];

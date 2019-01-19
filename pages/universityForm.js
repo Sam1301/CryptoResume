@@ -3,7 +3,28 @@ import { Container, Button, Input, Form, Label} from 'semantic-ui-react';
 import Head from 'next/head';
 
 class UniversityForm extends Component {
-        // TODO: resolve  Warning: Extra attributes from the server: style
+
+        // onSubmit = async event => {
+        //     event.preventDefault();
+        
+        //     const { address, id, designation, dateOfJoining, dateOfRelieving, ctc } = this.state;
+        //     // address _personAddr, string _dateOfJoining, string _designation, uint _ctc, string _dateOfRelieving, string _employeeID
+        //     try {
+        //         const accounts = await web3.eth.getAccounts();
+        //         console.log("before");
+    
+        //         await store.methods
+        //             .verifyAllUniversity(address, dateOfJoining, designation, ctc, dateOfRelieving, id)
+        //             .send({ from: accounts[0], gas: '50000000' });
+        //             console.log("after");
+    
+        //         Router.pushRoute(`/`);
+        //     } catch (err) {
+        //         console.log(err);
+                
+        //     }
+    
+        // };
 
     render() {
         return (
