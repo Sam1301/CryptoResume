@@ -8,8 +8,6 @@ import web3 from '../ethereum/web3';
 class ResumeIndex extends Component {
     render() {
         const imgUrl = 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
-        // TODO: route to student form
-        // TODO: route to owner form
         return (
             <div style={{backgroundImage: 'url(' + imgUrl + ')', display: 'flex', position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', alignItems: 'center', flexDirection: 'column', justifyContent: 'center'}}>
                 <Head>
@@ -31,7 +29,7 @@ class ResumeIndex extends Component {
                         <Link route='/universityForm'>
                             <Button>University</Button>
                         </Link>
-                        <Link route='/'>
+                        <Link route='/ownerPortal'>
                             <Button>Owner</Button>
                         </Link>
                     </div>

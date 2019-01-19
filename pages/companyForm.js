@@ -59,13 +59,6 @@ class EmployeeForm extends Component {
     };
 
     render() {
-<<<<<<< HEAD
-        return (
-            <Container >
-            <Head>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
-            </Head>
-=======
          const imgUrl = 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
         return (
             <Container>
@@ -73,7 +66,6 @@ class EmployeeForm extends Component {
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
             </Head>
              <div style={{backgroundImage: 'url(' + imgUrl + ')', display: 'flex', position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', alignItems: 'center', flexDirection: 'column', justifyContent: 'center'}}>
->>>>>>> 3b0958a97dd8392d5a99f76f43a8cf18ac569df8
             <Form onSubmit={this.onSubmit} style ={{ marginTop: '10px' }}>
                 <Form.Field>
                      <Label>Employee Address</Label>
@@ -126,10 +118,7 @@ class EmployeeForm extends Component {
                 
                 <Button type='submit'>Submit</Button>
             </Form>
-<<<<<<< HEAD
-=======
             </div>
->>>>>>> 3b0958a97dd8392d5a99f76f43a8cf18ac569df8
             </Container>
         );
     }

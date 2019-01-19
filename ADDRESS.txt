@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 0xA3cDd6E146C53f0013C26E014a0e0291b24C57fc
 
 applicant Sam sam@gmail.com : 0xFe7F7E0D8d3c6bf05DFCd0Fa26B09156a1446a26
@@ -6,12 +5,3 @@ applicant Sam sam@gmail.com : 0xFe7F7E0D8d3c6bf05DFCd0Fa26B09156a1446a26
 university  igdtuw @igdtuw : 0xcE77246084F36A221DEC0536325503B21EC2e524
 
 company gs @gs : 0x67725c21e4D931bD7a35D0586a646Fe157539f10
-=======
-0xfaEd1925cf72bEBc30eC1dE575421C7A413865e8
-
-applicant Sam saumya.bhatnagar.sb@gmail.com : 0xFe7F7E0D8d3c6bf05DFCd0Fa26B09156a1446a26
-
-university gs @gs : 0xcE77246084F36A221DEC0536325503B21EC2e524
-
-company 
->>>>>>> 3b0958a97dd8392d5a99f76f43a8cf18ac569df8
