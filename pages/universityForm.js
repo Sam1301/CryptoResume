@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Input, Form, Label} from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment, Container } from 'semantic-ui-react'
 import Head from 'next/head';
 import store from '../ethereum/CredentialStore';
 import { Link, Router } from '../routes';
@@ -61,7 +61,7 @@ class UniversityForm extends Component {
     
     render() {
         return (
-            <Container >
+            <div>
             <Head>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
             </Head>
@@ -106,7 +106,7 @@ class UniversityForm extends Component {
                 
                 <Button type='submit'>Submit</Button>
             </Form>
-            </Container>
+            </div>
         );
     }
 }
