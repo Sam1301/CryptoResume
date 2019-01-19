@@ -21,7 +21,7 @@ contract CredentialStore {
         // maps names to credentials
         mapping(string => UniversityCredential) universityMap;
         mapping(string => JobCredential) jobMap;
-        string name;
+        string email;
     }
 
     // public address mapped to university name (owner of name) 
@@ -34,6 +34,8 @@ contract CredentialStore {
     mapping(address => Person) public personMap;
     
     mapping(bytes32 => address) public personMap2;
+    
+    mapping(string => string) private emailToName;
     
     // access credentials with this procedure:
     // credential = contract.studentMap[studentAddr].universityMap[universityName]
@@ -50,19 +52,23 @@ contract CredentialStore {
     }
     
     // OWNER INTERFACE
-    function authorizeUniversity(address _universityAddr, string _universityName) onlyOwner public 
+    function authorizeUniversity(address _universityAddr, string _universityName, string _universityEmail) onlyOwner public 
     {
-        accreditedUniversities[_universityAddr] = _universityName;
+        accreditedUniversities[_universityAddr] = _universityEmail;
+        emailToName[_universityEmail] = _universityName;
+        
     }
 
-    function authorizeFirm(address _firmAddr, string _firmName) onlyOwner public
+    function authorizeFirm(address _firmAddr, string _firmName, string _firmEmail) onlyOwner public
     {
-        registeredCompanies[_firmAddr] = _firmName;
+        registeredCompanies[_firmAddr] = _firmEmail;
+        emailToName[_firmEmail] = _firmName;
     }
 
-    function identifyPerson(address _personAddr,string _personName) onlyOwner public 
+    function identifyPerson(address _personAddr,string _personName, string _personEmail) onlyOwner public 
     {
-        personMap[_personAddr].name = _personName;
+        personMap[_personAddr].email = _personEmail;
+        emailToName[_personEmail] = _personName;
         personMap2[keccak256(abi.encodePacked(_personName))] = _personAddr;
     }
 
@@ -120,7 +126,7 @@ contract CredentialStore {
 
     // GETTERS
     function getName(address _personAddr) public view returns (string) {
-        return personMap[_personAddr].name;
+        return emailToName[personMap[_personAddr].email];
     }
 
     function getDegreeType(address _personAddr, string _universityName) public view returns (string) {
@@ -161,5 +167,9 @@ contract CredentialStore {
 
     function getEmployeeID(address _personAddr, string _firmName) public view returns (string) {
         return personMap[_personAddr].jobMap[_firmName].employeeID;
+    }
+    
+    function getNameFromEmail(string email) public view returns(string) {
+        return emailToName[email];
     }
 }
