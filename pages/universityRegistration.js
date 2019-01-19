@@ -13,7 +13,7 @@ class UniversityRegistration extends Component {
                     <Form.Field>
                         <Label>Enter Name</Label>
                         <Input 
-                        placeholder='University Name'
+                            placeholder='University Name'
                          />
                     </Form.Field>
                     <Button type='submit' primary>Submit</Button>

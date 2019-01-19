@@ -2,19 +2,26 @@ import React, { Component } from 'react';
 import { Button, Container } from 'semantic-ui-react';
 import Head from 'next/head';
 import store from '../ethereum/CredentialStore';
-import { Link } from '../routes';
+import { Link, Router } from '../routes';
 import web3 from '../ethereum/web3';
 
 class ResumeIndex extends Component {
-    static async getInitialProps() {
-        // TODO: this routing is working but on second entry of route
-        // alternative: show a loading screen and then route to the current page
+    // static async getInitialProps() {
+    //     // TODO: this routing is working but on second entry of route
+    //     // alternative: show a loading screen and then route to the current page
 
-        // TODO: checkout button onclick approach
+    //     // checkout button onclick approach, show loading in the button state
+    //     const accounts = await web3.eth.getAccounts();
+    //     const name = await store.methods.accreditedUniversities(accounts[0]).call();        
+    //     const isUniversity = !!name;
+    //     return { isUniversity };
+    // }
+
+    onClick = async () => {
         const accounts = await web3.eth.getAccounts();
         const name = await store.methods.accreditedUniversities(accounts[0]).call();        
         const isUniversity = !!name;
-        return { isUniversity };
+        Router.pushRoute(isUniversity ? '/universityForm' : '/universityRegistration');
     }
 
     render() {
@@ -40,11 +47,9 @@ class ResumeIndex extends Component {
                         <Link route='/employeeForm'>
                             <Button>Company</Button>
                         </Link>
-                        <Link route={this.props.isUniversity ? '/universityForm' : '/universityRegistration'}>
-                            <Button>
+                            <Button onClick={this.onClick}>
                                 University
                             </Button>
-                        </Link>
                     </div>
             </div>
         );
