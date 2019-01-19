@@ -18,16 +18,16 @@ contract CredentialStore {
     }
 
     struct Person {
-        // maps names to credentials
+        // maps email to credentials
         mapping(string => UniversityCredential) universityMap;
         mapping(string => JobCredential) jobMap;
         string email;
     }
 
-    // public address mapped to university name (owner of name) 
+    // public address mapped to university email (owner of email) 
     mapping(address => string) public accreditedUniversities;
 
-    // public address mapped to firm name(owner of name)
+    // public address mapped to firm email(owner of email)
     mapping(address => string) public registeredCompanies;
     
     // public address mapped to student which owns domain
@@ -78,95 +78,111 @@ contract CredentialStore {
     
     // UNIVERSITY INTERFACE
     function updateDegreeType(address _personAddr, string _degreeType) public {
-        string storage universityName = accreditedUniversities[msg.sender];
-        personMap[_personAddr].universityMap[universityName].degreeType = _degreeType;
+        string storage universityEmail = accreditedUniversities[msg.sender];
+        personMap[_personAddr].universityMap[universityEmail].degreeType = _degreeType;
     }
     function updateCompleted(address _personAddr, bool _completed) public {
-        string storage universityName = accreditedUniversities[msg.sender];
-        personMap[_personAddr].universityMap[universityName].completed = _completed;
+        string storage universityEmail = accreditedUniversities[msg.sender];
+        personMap[_personAddr].universityMap[universityEmail].completed = _completed;
     }
     function updateYearOfGraduation(address _personAddr, uint _yearOfGraduation) public {
-        string storage universityName = accreditedUniversities[msg.sender];
-        personMap[_personAddr].universityMap[universityName].yearOfGraduation = _yearOfGraduation;
+        string storage universityEmail = accreditedUniversities[msg.sender];
+        personMap[_personAddr].universityMap[universityEmail].yearOfGraduation = _yearOfGraduation;
     }
     function updateFieldOfStudy(address _personAddr, string _fieldOfStudy) public  {
-        string storage universityName = accreditedUniversities[msg.sender];
-        personMap[_personAddr].universityMap[universityName].fieldOfStudy = _fieldOfStudy;
+        string storage universityEmail = accreditedUniversities[msg.sender];
+        personMap[_personAddr].universityMap[universityEmail].fieldOfStudy = _fieldOfStudy;
     }
     function updateGPA(address _personAddr, uint _gpa) public {
-        string storage universityName = accreditedUniversities[msg.sender];
-        personMap[_personAddr].universityMap[universityName].gpa = _gpa;
+        string storage universityEmail = accreditedUniversities[msg.sender];
+        personMap[_personAddr].universityMap[universityEmail].gpa = _gpa;
+    }
+    
+    function verifyAllUniversity(address _personAddr, string _degreeType, bool _completed, uint _yearOfGraduation, string _fieldOfStudy, uint _gpa) public {
+        updateDegreeType(_personAddr, _degreeType);
+        updateCompleted(_personAddr, _completed);
+        updateYearOfGraduation(_personAddr, _yearOfGraduation);
+        updateFieldOfStudy(_personAddr, _fieldOfStudy);
+        updateGPA(_personAddr, _gpa);
     }
 
      // COMPANY INTERFACE
     function updateDateOfJoining(address _personAddr, string _dateOfJoining) public {
-        string storage firmName = registeredCompanies[msg.sender];
-        personMap[_personAddr].jobMap[firmName].dateOfJoining = _dateOfJoining;
+        string storage firmEmail = registeredCompanies[msg.sender];
+        personMap[_personAddr].jobMap[firmEmail].dateOfJoining = _dateOfJoining;
     }
 
     function updateDesignation(address _personAddr, string _designation) public {
-        string storage firmName = registeredCompanies[msg.sender];
-        personMap[_personAddr].jobMap[firmName].designation = _designation;
+        string storage firmEmail = registeredCompanies[msg.sender];
+        personMap[_personAddr].jobMap[firmEmail].designation = _designation;
     }
 
     function updateCTC(address _personAddr, uint _ctc) public {
-        string storage firmName = registeredCompanies[msg.sender];
-        personMap[_personAddr].jobMap[firmName].CTC = _ctc;
+        string storage firmEmail = registeredCompanies[msg.sender];
+        personMap[_personAddr].jobMap[firmEmail].CTC = _ctc;
     }
 
     function updateDateOfRelieving(address _personAddr, string _dateOfRelieving) public {
-        string storage firmName = registeredCompanies[msg.sender];
-        personMap[_personAddr].jobMap[firmName].dateOfRelieving = _dateOfRelieving;
+        string storage firmEmail = registeredCompanies[msg.sender];
+        personMap[_personAddr].jobMap[firmEmail].dateOfRelieving = _dateOfRelieving;
     }
 
     function updateEmployeeID(address _personAddr, string _employeeID) public {
-        string storage firmName = registeredCompanies[msg.sender];
-        personMap[_personAddr].jobMap[firmName].employeeID = _employeeID;
+        string storage firmEmail = registeredCompanies[msg.sender];
+        personMap[_personAddr].jobMap[firmEmail].employeeID = _employeeID;
     }
 
+    function verifyAllCompany(address _personAddr, string _dateOfJoining, string _designation, uint _ctc, string _dateOfRelieving, string _employeeID) public {
+        updateDateOfJoining(_personAddr, _dateOfJoining);
+        updateDesignation(_personAddr, _designation);
+        updateCTC(_personAddr, _ctc);
+        updateDateOfRelieving(_personAddr, _dateOfRelieving);
+        updateEmployeeID(_personAddr, _employeeID);
+    }
+    
     // GETTERS
     function getName(address _personAddr) public view returns (string) {
         return emailToName[personMap[_personAddr].email];
     }
 
-    function getDegreeType(address _personAddr, string _universityName) public view returns (string) {
-        return personMap[_personAddr].universityMap[_universityName].degreeType;
+    function getDegreeType(address _personAddr, string _universityEmail) public view returns (string) {
+        return personMap[_personAddr].universityMap[_universityEmail].degreeType;
     }
 
-    function getCompleted(address _personAddr, string _universityName) public view returns (bool) {
-        return personMap[_personAddr].universityMap[_universityName].completed;
+    function getCompleted(address _personAddr, string _universityEmail) public view returns (bool) {
+        return personMap[_personAddr].universityMap[_universityEmail].completed;
     }
 
-    function getYearOfGraduation(address _personAddr, string _universityName) public view returns (uint) {
-        return personMap[_personAddr].universityMap[_universityName].yearOfGraduation;
+    function getYearOfGraduation(address _personAddr, string _universityEmail) public view returns (uint) {
+        return personMap[_personAddr].universityMap[_universityEmail].yearOfGraduation;
     }
 
-    function getFieldOfStudy(address _personAddr, string _universityName) public view returns (string) {
-        return personMap[_personAddr].universityMap[_universityName].fieldOfStudy;
+    function getFieldOfStudy(address _personAddr, string _universityEmail) public view returns (string) {
+        return personMap[_personAddr].universityMap[_universityEmail].fieldOfStudy;
     }
 
-    function getGPA(address _personAddr, string _universityName) public view returns (uint) {
-        return personMap[_personAddr].universityMap[_universityName].gpa;
+    function getGPA(address _personAddr, string _universityEmail) public view returns (uint) {
+        return personMap[_personAddr].universityMap[_universityEmail].gpa;
     }
     
-    function getDateOfJoining(address _personAddr, string _firmName) public view returns (string) {
-        return personMap[_personAddr].jobMap[_firmName].dateOfJoining;
+    function getDateOfJoining(address _personAddr, string _firmEmail) public view returns (string) {
+        return personMap[_personAddr].jobMap[_firmEmail].dateOfJoining;
     }
 
-    function getDesignation(address _personAddr, string _firmName) public view returns (string) {
-        return personMap[_personAddr].jobMap[_firmName].designation;
+    function getDesignation(address _personAddr, string _firmEmail) public view returns (string) {
+        return personMap[_personAddr].jobMap[_firmEmail].designation;
     }
     
-    function getCTC(address _personAddr, string _firmName) public view returns (uint) {
-        return personMap[_personAddr].jobMap[_firmName].CTC;
+    function getCTC(address _personAddr, string _firmEmail) public view returns (uint) {
+        return personMap[_personAddr].jobMap[_firmEmail].CTC;
     }
     
-    function getDateOfRelieving(address _personAddr, string _firmName) public view returns (string) {
-        return personMap[_personAddr].jobMap[_firmName].dateOfRelieving;
+    function getDateOfRelieving(address _personAddr, string _firmEmail) public view returns (string) {
+        return personMap[_personAddr].jobMap[_firmEmail].dateOfRelieving;
     }
 
-    function getEmployeeID(address _personAddr, string _firmName) public view returns (string) {
-        return personMap[_personAddr].jobMap[_firmName].employeeID;
+    function getEmployeeID(address _personAddr, string _firmEmail) public view returns (string) {
+        return personMap[_personAddr].jobMap[_firmEmail].employeeID;
     }
     
     function getNameFromEmail(string email) public view returns(string) {
