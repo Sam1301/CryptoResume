@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Button, Checkbox, Form} from 'semantic-ui-react';
+import { Container, Button, Input, Form, Label} from 'semantic-ui-react';
 import Head from 'next/head';
 
 class EmployeeForm extends Component {
+    // TODO: resolve  Warning: Extra attributes from the server: style
     render() {
         return (
             <Container >
@@ -11,30 +12,30 @@ class EmployeeForm extends Component {
             </Head>
             <Form style ={{ marginTop: '10px' }}>
                 <Form.Field>
-                     <label>Employee Address</label>
-                    <input 
+                     <Label>Employee Address</Label>
+                    <Input 
                     placeholder='Employee Address'
                     labelPosition="right" />
                 </Form.Field>
                 <Form.Field>
-                    <label>Employee ID</label>
-                    <input placeholder='Employee ID' />
+                    <Label>Employee ID</Label>
+                    <Input placeholder='Employee ID' />
                 </Form.Field>
                 <Form.Field>
-                    <label>Designation</label>
-                    <input placeholder='Designation' />
+                    <Label>Designation</Label>
+                    <Input placeholder='Designation' />
                 </Form.Field>
                  <Form.Field>
-                    <label>Date of Joining</label>
-                    <input placeholder='Date Of Joining' />
+                    <Label>Date of Joining</Label>
+                    <Input placeholder='Date Of Joining' />
                 </Form.Field>
                 <Form.Field>
-                    <label>Date of Relieving</label>
-                    <input placeholder='Date of Relieving' />
+                    <Label>Date of Relieving</Label>
+                    <Input placeholder='Date of Relieving' />
                 </Form.Field>
                 <Form.Field>
-                    <label>CTC</label>
-                    <input placeholder='CTC' />
+                    <Label>CTC</Label>
+                    <Input placeholder='CTC' />
                 </Form.Field>
                 
                 <Button type='submit'>Submit</Button>

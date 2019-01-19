@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Checkbox, Form} from 'semantic-ui-react';
+import { Container, Button, Form, Label, Input} from 'semantic-ui-react';
 import Head from 'next/head';
 
 class UniversityRegistration extends Component {
@@ -11,8 +11,8 @@ class UniversityRegistration extends Component {
                 </Head>
                 <Form>
                     <Form.Field>
-                        <label>Enter Name</label>
-                        <input 
+                        <Label>Enter Name</Label>
+                        <Input 
                         placeholder='University Name'
                          />
                     </Form.Field>

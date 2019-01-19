@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Button, Checkbox, Form} from 'semantic-ui-react';
+import { Container, Button, Input, Form, Label} from 'semantic-ui-react';
 import Head from 'next/head';
 
 class UniversityForm extends Component {
+        // TODO: resolve  Warning: Extra attributes from the server: style
+
     render() {
         return (
             <Container >
@@ -11,26 +13,26 @@ class UniversityForm extends Component {
             </Head>
             <Form style ={{ marginTop: '10px' }}>
                 <Form.Field>
-                     <label>Student Address</label>
-                    <input 
+                     <Label>Student Address</Label>
+                    <Input 
                     placeholder='Student Address'
                     labelPosition="right" />
                 </Form.Field>
                 <Form.Field>
-                    <label>Year of Graduation</label>
-                    <input placeholder='Year of Graduation' />
+                    <Label>Year of Graduation</Label>
+                    <Input placeholder='Year of Graduation' />
                 </Form.Field>
                  <Form.Field>
-                    <label>Degree Type</label>
-                    <input placeholder='Degree Type' />
+                    <Label>Degree Type</Label>
+                    <Input placeholder='Degree Type' />
                 </Form.Field>
                 <Form.Field>
-                    <label>Field of Study</label>
-                    <input placeholder='Field of Study' />
+                    <Label>Field of Study</Label>
+                    <Input placeholder='Field of Study' />
                 </Form.Field>
                 <Form.Field>
-                    <label>CGPA</label>
-                    <input placeholder='CGPA' />
+                    <Label>CGPA</Label>
+                    <Input placeholder='CGPA' />
                 </Form.Field>
                 
                 <Button type='submit'>Submit</Button>
