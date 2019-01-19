@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container } from 'semantic-ui-react';
+import { Button, Container, Message } from 'semantic-ui-react';
 import Head from 'next/head';
 import store from '../ethereum/CredentialStore';
 import { Link, Router } from '../routes';
@@ -25,16 +25,15 @@ class ResumeIndex extends Component {
                                 Applicant
                             </Button>
                         </Link>
+                        <Link route='/companyForm'>
+                            <Button>Company</Button>
+                        </Link>
                         <Link route='/universityForm'>
                             <Button>University</Button>
-                        </Link>
-                        <Link route='/employeeForm'>
-                            <Button>Employee</Button>
                         </Link>
                         <Link route='/'>
                             <Button>Owner</Button>
                         </Link>
-                        
                     </div>
             </div>
         );
