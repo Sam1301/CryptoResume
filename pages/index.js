@@ -6,29 +6,10 @@ import { Link, Router } from '../routes';
 import web3 from '../ethereum/web3';
 
 class ResumeIndex extends Component {
-    // static async getInitialProps() {
-    //     // TODO: this routing is working but on second entry of route
-    //     // alternative: show a loading screen and then route to the current page
-
-    //     // checkout button onclick approach, show loading in the button state
-    //     const accounts = await web3.eth.getAccounts();
-    //     const name = await store.methods.accreditedUniversities(accounts[0]).call();        
-    //     const isUniversity = !!name;
-    //     return { isUniversity };
-    // }
-
-    onClick = async () => {
-        const accounts = await web3.eth.getAccounts();
-        const name = await store.methods.accreditedUniversities(accounts[0]).call();        
-        const isUniversity = !!name;
-        Router.pushRoute(isUniversity ? '/universityForm' : '/registration');
-    }
-
     render() {
-        // console.log(store);
-
         const imgUrl = 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
         // TODO: route to student form
+        // TODO: route to owner form
         return (
             <div style={{backgroundImage: 'url(' + imgUrl + ')', display: 'flex', position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', alignItems: 'center', flexDirection: 'column', justifyContent: 'center'}}>
                 <Head>
@@ -41,15 +22,19 @@ class ResumeIndex extends Component {
                     <div >
                         <Link route='/'> 
                             <Button>
-                                Student
+                                Applicant
                             </Button>
+                        </Link>
+                        <Link route='/universityForm'>
+                            <Button>University</Button>
                         </Link>
                         <Link route='/employeeForm'>
-                            <Button>Company</Button>
+                            <Button>Employee</Button>
                         </Link>
-                            <Button onClick={this.onClick}>
-                                University
-                            </Button>
+                        <Link route='/'>
+                            <Button>Owner</Button>
+                        </Link>
+                        
                     </div>
             </div>
         );
