@@ -1,59 +1,107 @@
 import React, { Component } from 'react';
 import { Container, Button, Input, Form, Label} from 'semantic-ui-react';
 import Head from 'next/head';
+import store from '../ethereum/CredentialStore';
+import { Link, Router } from '../routes';
+import web3 from '../ethereum/web3';
 
 class UniversityForm extends Component {
 
-        // onSubmit = async event => {
-        //     event.preventDefault();
-        
-        //     const { address, id, designation, dateOfJoining, dateOfRelieving, ctc } = this.state;
-        //     // address _personAddr, string _dateOfJoining, string _designation, uint _ctc, string _dateOfRelieving, string _employeeID
-        //     try {
-        //         const accounts = await web3.eth.getAccounts();
-        //         console.log("before");
+        state =  {
+            address: '',
+            degreeType: '',
+            completed: '',
+            yearOfGraduation: '',
+            fieldOfStudy: '',
+            gpa: ''
+        };
     
-        //         await store.methods
-        //             .verifyAllUniversity(address, dateOfJoining, designation, ctc, dateOfRelieving, id)
-        //             .send({ from: accounts[0], gas: '50000000' });
-        //             console.log("after");
+        onChangeAddress = (e) => {
+            this.setState({ address: e.target.value })
+        }
     
-        //         Router.pushRoute(`/`);
-        //     } catch (err) {
-        //         console.log(err);
-                
-        //     }
+        onChangedegreeType = (e) => {
+            this.setState({ degreeType: e.target.value })
     
-        // };
+        }
+    
+        onChangeCompleted = (e) => {
+            this.setState({ completed: e.target.value })
+        }
+    
+        onChangeYearOfGraduation = (e) => {
+            this.setState({ yearOfGraduation: e.target.value })
+    
+        }
+    
+        onChangeFieldOfStudy = (e) => {
+            this.setState({ fieldOfStudy: e.target.value })
+    
+        }
+    
+        onChangeGpa = (e) => {
+            this.setState({ gpa: e.target.value })
+        }
+    
+        onSubmit = async event => {
+            event.preventDefault();        
+            const { address, degreeType, completed, yearOfGraduation, fieldOfStudy, gpa } = this.state;
 
+            try {
+                const accounts = await web3.eth.getAccounts();
+    
+                await store.methods
+                    .verifyAllUniversity(address, degreeType, completed, yearOfGraduation, fieldOfStudy, gpa)
+                    .send({ from: accounts[0] });
+                Router.pushRoute(`/`);
+            } catch (err) {
+                console.log(err);    
+            }
+        };
+    
     render() {
         return (
             <Container >
             <Head>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
             </Head>
-            <Form style ={{ marginTop: '10px' }}>
+            <Form onSubmit={this.onSubmit} style ={{ marginTop: '10px' }}>
                 <Form.Field>
                      <Label>Student Address</Label>
                     <Input 
+                    onChange={this.onChangeAddress}
+                    value={this.state.address}
                     placeholder='Student Address'
                     labelPosition="right" />
                 </Form.Field>
                 <Form.Field>
+                    
                     <Label>Year of Graduation</Label>
-                    <Input placeholder='Year of Graduation' />
+                    <Input 
+                    onChange={this.onChangeYearOfGraduation}
+                    value={this.state.yearOfGraduation}
+                    placeholder='Year of Graduation' />
                 </Form.Field>
                  <Form.Field>
                     <Label>Degree Type</Label>
-                    <Input placeholder='Degree Type' />
+                    <Input 
+                    onChange={this.onChangedegreeType}
+                    value={this.state.degreeType}
+                    placeholder='Degree Type' />
                 </Form.Field>
                 <Form.Field>
                     <Label>Field of Study</Label>
-                    <Input placeholder='Field of Study' />
+                    <Input 
+                    onChange={this.onChangeFieldOfStudy}
+                    value={this.state.fieldOfStudy}
+                    placeholder='Field of Study' />
                 </Form.Field>
                 <Form.Field>
                     <Label>CGPA</Label>
-                    <Input placeholder='CGPA' />
+                    <Input 
+                    onChange={this.onChangeGpa}
+                    value={this.state.gpa}
+                    placeholder='GPA' />
                 </Form.Field>
                 
                 <Button type='submit'>Submit</Button>
