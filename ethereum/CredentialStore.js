@@ -3,7 +3,7 @@ import CredentialStore from './build/CredentialStore';
 
 const instance = new web3.eth.Contract(
   JSON.parse(CredentialStore.interface),
-  '0xfaEd1925cf72bEBc30eC1dE575421C7A413865e8'
+  '0xA3cDd6E146C53f0013C26E014a0e0291b24C57fc'
 );
 
 export default instance;

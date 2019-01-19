@@ -20,7 +20,7 @@ class ResumeIndex extends Component {
                         Blockchain resume
                     </h1>
                     <div >
-                        <Link route='/'> 
+                        <Link route='/applicantDashboard'> 
                             <Button>
                                 Applicant
                             </Button>

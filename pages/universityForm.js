@@ -31,7 +31,6 @@ class UniversityForm extends Component {
     
         onChangeYearOfGraduation = (e) => {
             this.setState({ yearOfGraduation: e.target.value })
-    
         }
     
         onChangeFieldOfStudy = (e) => {
