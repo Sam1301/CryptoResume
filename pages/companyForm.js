@@ -66,56 +66,53 @@ class EmployeeForm extends Component {
              <Head>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
             </Head>
-            <Form onSubmit={this.onSubmit} style ={{ marginTop: '10px' }}>
-                <Form.Field>
-                     <Label>Employee Address</Label>
+            <h1 style={{color: 'white', fontSize: '5em'}}>
+                        Employee Portal
+            </h1>
+            <Form onSubmit={this.onSubmit} style ={{ marginTop: '10px'}}>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                         value={this.state.address}
                         onChange={this.onChangeAddress}
                         placeholder='Employee Address'
                         labelPosition="right" />
                 </Form.Field>
-                <Form.Field>
-                    <Label>Employee ID</Label>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                         value={this.state.id}
                         placeholder='Employee ID'
                         onChange={this.onChangeID}
                         />
                 </Form.Field>
-                <Form.Field>
-                    <Label>Designation</Label>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                     placeholder='Designation'
                     value={this.state.designation}
                     onChange={this.onChangeDesignation}
                     />
                 </Form.Field>
-                 <Form.Field>
-                    <Label>Date of Joining</Label>
+                 <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
+                    placeholder="Date of joining"
                     value={this.state.dateOfJoining}
                     onChange={this.onChangeDateOfJoining}
                     />
                 </Form.Field>
-                <Form.Field>
-                    <Label>Date of Relieving</Label>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                     placeholder='Date of Relieving'
                     value={this.state.dateOfRelieving}
                     onChange={this.onChangeDateOfRelieving}
                     />
                 </Form.Field>
-                <Form.Field>
-                    <Label>CTC</Label>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                         placeholder='CTC'
                         value={this.state.ctc}
                         onChange={this.onChangeCtc}
                     />
                 </Form.Field>
-                
-                <Button type='submit'>Submit</Button>
+                <Button secondary size='massive' type='submit' style={{ marginLeft: '20vw'}}>Submit</Button>
             </Form>
             </div>
         );
