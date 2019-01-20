@@ -103,7 +103,7 @@ class OwnerPortal extends Component {
     }
 
     render() {
-            const imgUrl = 'https://image.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-31799.jpg';
+            const imgUrl = 'https://media.giphy.com/media/KZgvXXzEVSwca2JAfi/giphy.gif';
             const { applicantName, applicantAddress, applicantEmail, universityName, universityAddress, universityEmail, companyName, companyAddress, companyEmail} = this.state;
 
             return (

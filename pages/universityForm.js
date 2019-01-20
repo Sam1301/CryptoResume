@@ -59,7 +59,7 @@ class UniversityForm extends Component {
         };
     
     render() {
-        const imgUrl = 'https://image.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-31799.jpg';
+        const imgUrl = 'https://media.giphy.com/media/KZgvXXzEVSwca2JAfi/giphy.gif';
         return (
              <div style={{backgroundImage: 'url(' + imgUrl + ')', display: 'flex', backgroundSize: 'cover', position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', alignItems: 'center', flexDirection: 'column', justifyContent: 'center'}}>
             <Head>

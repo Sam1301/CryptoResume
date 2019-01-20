@@ -28,7 +28,7 @@ class ApplicantDashboard extends Component {
     }
 
     render() {
-            const imgUrl = 'https://image.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-31799.jpg';
+            const imgUrl = 'https://media.giphy.com/media/KZgvXXzEVSwca2JAfi/giphy.gif';
             const { name, email, university, yearOfGraduation, fieldOfStudy, gpa, employerName } = this.props;
 
             return (
