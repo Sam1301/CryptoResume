@@ -39,15 +39,15 @@ class ApplicantDashboard extends Component {
                         <Card>
                             <Image src='https://cdn1.iconfinder.com/data/icons/avatar-flat-1/512/10-512.png' />
                             <Card.Content>
-                            <Card.Header>Name : {name}</Card.Header>
+                            <Card.Header style={{fontSize: '1.5em'}}>Name : {name}</Card.Header>
                             <Card.Meta>
                                 <span className='date'>Email : {email}</span>
                             </Card.Meta>
-                            <Card.Header>University : {university}<Icon name ="check circle outline" /></Card.Header>
+                            <Card.Header style={{fontSize: '1.5em'}}>University : {university}<Icon name ="check circle outline" /></Card.Header>
                             <Card.Description>Year of Graduation : {yearOfGraduation}</Card.Description>
                             <Card.Description>Field Of Study : {fieldOfStudy}</Card.Description>
                             <Card.Description>GPA : {gpa}</Card.Description>
-                            <Card.Header>{employerName}<Icon name ="check circle outline" /></Card.Header>
+                            <Card.Header style={{fontSize: '1.5em'}}>Employer: {employerName}<Icon name ="check circle outline" /></Card.Header>
                             </Card.Content>
                         </Card>
                 </div>

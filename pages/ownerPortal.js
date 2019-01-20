@@ -108,9 +108,13 @@ class OwnerPortal extends Component {
 
             return (
                 <div style={{backgroundImage: 'url(' + imgUrl + ')', display: 'flex', backgroundSize: 'cover', position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', alignItems: 'center', flexDirection: 'column', justifyContent: 'center'}}>
+
                     <Head>
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
                     </Head>
+                    <h1 style={{color: 'white', fontSize: '5em'}}>
+                        Owner Portal
+            </h1>
                         <Card.Group itemsPerRow={3}>
                         <Card color='red'>
                         <Card.Content>
@@ -136,7 +140,7 @@ class OwnerPortal extends Component {
                                         onChange={this.onChangeAppEmail}
                                         placeholder='Applicant Email ID' />
                                 </Form.Field>
-                                <Button type='submit'>Submit</Button>
+                                <Button secondary size='large' type='submit'>Submit</Button>
                         </Form> 
                         </Card.Content>
                         </Card>
@@ -165,7 +169,7 @@ class OwnerPortal extends Component {
                                     onChange={this.onChangeUniEmail}
                                     placeholder='University Email ID' />
                                 </Form.Field>
-                                <Button type='submit'>Submit</Button>
+                                <Button secondary size='large' type='submit'>Submit</Button>
                         </Form> 
                         </Card.Content>
                         </Card>
@@ -194,7 +198,7 @@ class OwnerPortal extends Component {
                                         onChange={this.onChangeCompEmail}
                                         placeholder='Company Email ID' />
                                 </Form.Field>
-                                <Button type='submit'>Submit</Button>
+                                <Button secondary size='large' type='submit'>Submit</Button>
                             </Form> 
                         </Card.Content>
                         </Card>

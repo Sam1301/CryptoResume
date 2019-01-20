@@ -65,46 +65,44 @@ class UniversityForm extends Component {
             <Head>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
             </Head>
+            <h1 style={{color: 'white', fontSize: '5em'}}>
+                        University Portal
+            </h1>
             <Form onSubmit={this.onSubmit} style ={{ marginTop: '10px' }}>
-                <Form.Field>
-                     <Label>Student Address</Label>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                     onChange={this.onChangeAddress}
                     value={this.state.address}
                     placeholder='Student Address'
                     labelPosition="right" />
                 </Form.Field>
-                <Form.Field>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     
-                    <Label>Year of Graduation</Label>
                     <Input 
                     onChange={this.onChangeYearOfGraduation}
                     value={this.state.yearOfGraduation}
                     placeholder='Year of Graduation' />
                 </Form.Field>
-                 <Form.Field>
-                    <Label>Degree Type</Label>
+                 <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                     onChange={this.onChangedegreeType}
                     value={this.state.degreeType}
                     placeholder='Degree Type' />
                 </Form.Field>
-                <Form.Field>
-                    <Label>Field of Study</Label>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                     onChange={this.onChangeFieldOfStudy}
                     value={this.state.fieldOfStudy}
                     placeholder='Field of Study' />
                 </Form.Field>
-                <Form.Field>
-                    <Label>CGPA</Label>
+                <Form.Field style={{display: 'flex', flexDirection: 'row', width: "50vw"}}>
                     <Input 
                     onChange={this.onChangeGpa}
                     value={this.state.gpa}
                     placeholder='GPA' />
                 </Form.Field>
                 
-                <Button type='submit'>Submit</Button>
+                <Button secondary size='massive' type='submit' style={{ marginLeft: '20vw'}}>Submit</Button>
             </Form>
             </div>
         );
